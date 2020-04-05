@@ -36,7 +36,7 @@ create action file
 name: "Auto Assign"
 on:
   pull_request:
-    types: [assigned]
+    types: [opened]
 
 jobs:
   assign:
