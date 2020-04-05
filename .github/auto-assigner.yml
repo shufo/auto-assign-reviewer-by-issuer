@@ -1,0 +1,11 @@
+---
+shufo:
+  - shufo2
+shufo2:
+  - shufo
+# you can use regexp
+john.*:
+  - shufo
+# fallback
+.*:
+  - shufo
