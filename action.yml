@@ -1,5 +1,5 @@
-name: 'Auto Assign Reviewer by Assignee'
-description: 'Assign a reviewer based on assignee'
+name: 'Auto Assign Reviewer by Issuer'
+description: 'This action will automatically assigns reviewers based on pull request issuer'
 branding:
   icon: 'at-sign'
   color: 'green'
