@@ -39,7 +39,7 @@ on:
     types: [assigned]
 
 jobs:
-  'assign reviewer':
+  assign:
     runs-on: ubuntu-latest
     steps:
     - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
