@@ -50,4 +50,4 @@ jobs:
 
 ## Example
 
-![image](https://user-images.githubusercontent.com/1641039/78450313-b753bd80-76b8-11ea-9a25-0d6bcf858227.png)
+![image](https://user-images.githubusercontent.com/1641039/78471193-71573200-776a-11ea-9b40-810c2d63270e.png)
