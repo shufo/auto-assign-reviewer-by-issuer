@@ -24,16 +24,16 @@
   },
   "homepage": "https://github.com/actions/javascript-action#readme",
   "dependencies": {
-    "@actions/core": "^1.1.1",
+    "@actions/core": "^1.2.4",
     "@actions/github": "^2.1.1",
     "lodash": "^4.17.15",
-    "yaml": "^1.8.2"
+    "yaml": "^1.9.2"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.20.5",
+    "@zeit/ncc": "^0.22.1",
     "app-root-path": "^3.0.0",
     "eslint": "^6.3.0",
     "eslint-plugin-jest": "^23.8.2",
-    "jest": "^24.9.0"
+    "jest": "^25.4.0"
   }
 }
