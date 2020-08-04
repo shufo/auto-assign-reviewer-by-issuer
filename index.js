@@ -1,7 +1,7 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const context = github.context;
-const request = require('request-promise');
+const request = require('got');
 const { parseConfig, hasAssignee, getReviewers } = require("./lib/util");
 
 // most @actions toolkit packages have async methods
