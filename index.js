@@ -58,7 +58,7 @@ async function fetchContent(client, repoPath) {
 }
 
 async function getUrl(url) {
-  const response = await got('url');
+  const response = await got(url);
   return Buffer.from(response.body).toString();
 }
 
