@@ -1,16 +1,26 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const context = github.context;
+const got = require('got');
 const { parseConfig, hasAssignee, getReviewers } = require("./lib/util");
 
 // most @actions toolkit packages have async methods
 async function run() {
+  let configContent = '';
+
   try {
     const token = core.getInput("token", { required: true });
     const configPath = core.getInput("config");
     const octokit = new github.GitHub(token);
 
-    const configContent = await fetchContent(octokit, configPath);
+    if (configPath.startsWith("http")) {
+      console.log(`Reading config from URL...`);
+      configContent = await getUrl(configPath);
+    } else {
+      console.log(`Reading config from local path...`);
+      configContent = await fetchContent(octokit, configPath);
+    }
+
     const config = parseConfig(configContent);
 
     core.debug("config");
@@ -45,6 +55,11 @@ async function fetchContent(client, repoPath) {
   });
 
   return Buffer.from(response.data.content, response.data.encoding).toString();
+}
+
+async function getUrl(url) {
+  const response = await got(url);
+  return Buffer.from(response.body).toString();
 }
 
 run();
