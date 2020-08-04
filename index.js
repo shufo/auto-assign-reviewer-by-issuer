@@ -10,6 +10,8 @@ async function run() {
     const configPath = core.getInput("config");
     const octokit = new github.GitHub(token);
 
+    console.log(`Reading config file ${configPath}`);
+
     const configContent = await fetchContent(octokit, configPath);
     const config = parseConfig(configContent);
 
