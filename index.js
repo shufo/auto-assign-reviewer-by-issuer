@@ -12,12 +12,16 @@ async function run() {
     const octokit = new github.GitHub(token);
     var configContent = '';
 
+    console.log(`Reading config file ${configPath}`);
+
     try {
       if (fs.existsSync(configPath)) {
+        console.log(`Local config file found ${configPath}`);
         core.debug("Local config found - using it");
         configContent = fs.readFileSync(configPath);
       } 
     } catch (err) {
+      console.log(`Local config file NOT found ${configPath}`);
       core.debug("local config not found - pulling from repo");
       configContent = await fetchContent(octokit, configPath);
     }
