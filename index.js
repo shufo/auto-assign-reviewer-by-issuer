@@ -11,26 +11,27 @@ async function run() {
     const octokit = new github.GitHub(token);
     var configContent;
 
-    console.log(`Reading config file ${configPath}`);
+    console.log(`Reading config file`);
 
     if (configPath.startsWith("http")) {
       // Get the content
-      console.log('config url');
+      console.log(`config url`);
     } else {
-      configContent = await fetchContent(octokit, configPath);
+      console.log(`local path`);
+      // configContent = await fetchContent(octokit, configPath);
     }
 
-    const config = parseConfig(configContent);
+    //const config = parseConfig(configContent);
 
-    core.debug("config");
-    core.debug(JSON.stringify(config));
+    //core.debug("config");
+    //core.debug(JSON.stringify(config));
 
-    const issuer = context.payload.pull_request.user.login;
+    //const issuer = context.payload.pull_request.user.login;
 
-    if (hasAssignee(config, issuer)) {
-      let reviewers = getReviewers(config, issuer);
-      assignReviewers(octokit, reviewers);
-    }
+    //if (hasAssignee(config, issuer)) {
+    //  let reviewers = getReviewers(config, issuer);
+    //  assignReviewers(octokit, reviewers);
+    //}
   } catch (error) {
     core.setFailed(error.message);
   }
