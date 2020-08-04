@@ -1,6 +1,5 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const fs = require('fs');
 const context = github.context;
 const { parseConfig, hasAssignee, getReviewers } = require("./lib/util");
 
@@ -10,22 +9,8 @@ async function run() {
     const token = core.getInput("token", { required: true });
     const configPath = core.getInput("config");
     const octokit = new github.GitHub(token);
-    var configContent = '';
 
-    console.log(`Reading config file ${configPath}`);
-
-    try {
-      if (fs.existsSync(configPath)) {
-        console.log(`Local config file found ${configPath}`);
-        core.debug("Local config found - using it");
-        configContent = fs.readFileSync(configPath);
-      } 
-    } catch (err) {
-      console.log(`Local config file NOT found ${configPath}`);
-      core.debug("local config not found - pulling from repo");
-      configContent = await fetchContent(octokit, configPath);
-    }
-    
+    const configContent = await fetchContent(octokit, configPath);
     const config = parseConfig(configContent);
 
     core.debug("config");
