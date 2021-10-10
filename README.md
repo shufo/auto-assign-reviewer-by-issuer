@@ -1,5 +1,6 @@
 ![CI](https://github.com/shufo/auto-assign-reviewer-by-issuer/workflows/CI/badge.svg)
 
+
 # Auto Assign Reviewer By Issuer
 
 Automatically assigns reviewers based on pull request issuer
